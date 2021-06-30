@@ -94,7 +94,7 @@ export default {
 
   methods: {
     postData(){
-      this.form.post('http://127.0.0.1:8000/Simulation').then((response) => {
+      this.form.post('http://192.168.1.81:8000/Simulation').then((response) => {
         this.bestChemin = response.data
         this.$store.bestChemin = this.bestChemin
       })
