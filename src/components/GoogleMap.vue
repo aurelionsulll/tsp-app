@@ -43,7 +43,7 @@
 
 		mounted () {
 			this.data = this.$store.bestChemin,
-			console.log(this.data);
+			console.log(this.data[0].lat);
 		},
 		computed: {
 			google: gmapApi,
