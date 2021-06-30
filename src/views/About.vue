@@ -62,6 +62,7 @@
             </div>
             <button onclick="javascript:void(0);" class="w-full p-3 text-white bg-green-600 rounded-md">Envoyer</button>
           </form>
+          {{bestChemin}}
         </div>
         </div>
       </div>
@@ -88,20 +89,15 @@ export default {
         T:"",
         file: "",
       }),
-      testObj:{},
+      bestChemin:{},
 
     }
   },
 
   methods: {
-    getData(){
-    this.axios.get('http://127.0.0.1:8000/Simulation').then((response) => {
-            console.log(response.data)
-          })
-    },
     postData(){
       this.form.post('http://127.0.0.1:8000/Simulation').then((response) => {
-        this.getData();
+        this.bestChemin = response.data
       })
     }
   },
