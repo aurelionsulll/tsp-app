@@ -7,7 +7,7 @@
       <div class="flex flex-col justify-center min-h-screen py-6 bg-gray-50 sm:py-12">
       <div class="relative w-11/12 max-w-xl py-3 sm:mx-auto">
         <div class="relative p-8 bg-white shadow-lg sm:rounded-xl">
-          <form @submit.prevent="getData()" class="w-full">
+          <form @submit.prevent="postData()" class="w-full">
             <div class="flex gap-x-2">
               <div class="relative w-1/2 mb-5">
                 <input type="text" name="num_pop" v-model="form.num_pop"  class="w-full h-16 p-3 pt-8 placeholder-transparent border border-gray-200 rounded-md peer focus:outline-none focus:border-gray-500 focus:shadow-sm" placeholder="name@example.com" autocomplete="off" />
@@ -78,15 +78,15 @@ export default {
   data() {
     return {
       form: new Form({
-        // range:"100",
-        // num_pop:"5",
-        // num_gen:"50",
-        // num_sel:"10",
-        // eliteSize:"2",
-        // PR:"1",
-        // Pm:"0",
-        // T:"4",
-        // file: "fdsfsd",
+        range:"",
+        num_pop:"",
+        num_gen:"",
+        num_sel:"",
+        eliteSize:"",
+        PR:"",
+        Pm:"",
+        T:"",
+        file: "",
       }),
       testObj:{},
 
@@ -94,34 +94,15 @@ export default {
   },
 
   methods: {
-
-
-
-    
-fhdfbdh(){
-this.axios.get('http://127.0.0.1:8000/Simulation').then((response) => {
-        console.log(response.data)
-      })
-},
-
-
     getData(){
-      // this.form.post('http://127.0.0.1:8000/Simulation').then((response) => {
-      //   console.log(response.data)
-      //   // this.fhdfbdh();
-      // })
-
-      this.axios.post('http://127.0.0.1:8000/Simulation',{
-        range:100,
-        num_pop:5,
-        num_gen:50,
-        num_sel:10,
-        eliteSize:2,
-        PR:1,
-        Pm:0,
-        T:4,
+    this.axios.get('http://127.0.0.1:8000/Simulation').then((response) => {
+            console.log(response.data)
+          })
+    },
+    postData(){
+      this.form.post('http://127.0.0.1:8000/Simulation').then((response) => {
+        this.getData();
       })
-
     }
   },
 }
