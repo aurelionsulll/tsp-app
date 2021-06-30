@@ -42,14 +42,15 @@
 	export default {
 
 		mounted () {
-			console.log(data);
+			this.data = this.$store.bestChemin,
+			console.log(this.data);
 		},
 		computed: {
 			google: gmapApi,
 		},
 		data() {
 			return {
-				data: this.$store.bestChemin,
+				data: {},
 				markers: [],
 				paths: [],
 				flightPath: {},
