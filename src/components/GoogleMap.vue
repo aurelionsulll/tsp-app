@@ -1,7 +1,5 @@
 <template>
 	<div style="padding : 20px">
-
-	{{bestChemin}}
 		<button
 			@click="mark()"
 		>
@@ -41,8 +39,12 @@
 
 <script>
 	import { gmapApi } from 'vue2-google-maps';
-	// import DirectionsRenderer from './DirectionsRenderer.js';
+
 	export default {
+
+		mounted () {
+			console.log(this.$store.bestChemin);
+		},
 		computed: {
 			google: gmapApi,
 		},

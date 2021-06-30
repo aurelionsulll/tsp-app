@@ -73,8 +73,6 @@
 <script>
 
 import Form from 'vform'
-this.$router.myProps.message = this.bestChemin
-
 export default {
   data() {
     return {
@@ -98,6 +96,7 @@ export default {
     postData(){
       this.form.post('http://127.0.0.1:8000/Simulation').then((response) => {
         this.bestChemin = response.data
+        this.$store.bestChemin = this.bestChemin
       })
     }
   },
