@@ -73,7 +73,7 @@
 <script>
 
 import Form from 'vform'
-
+this.$router.myProps.message = this.bestChemin
 
 export default {
   data() {

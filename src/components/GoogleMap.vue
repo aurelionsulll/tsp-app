@@ -1,5 +1,7 @@
 <template>
 	<div style="padding : 20px">
+
+	{{bestChemin}}
 		<button
 			@click="mark()"
 		>
